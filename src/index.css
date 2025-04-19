@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.productcard img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.productcard:hover img {
+  transform: scale(1.1);
+}
+
+.morebtn {
+  transition: padding-right 0.3s, background-color 0.3s;
+}
+
+.morebtn svg {
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.morebtn:hover {
+  padding-right: 20px;
+  background-color: #2563eb;
+}
+
+.morebtn:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mks img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.mks:hover img {
+  transform: scale(1.2);
+}
