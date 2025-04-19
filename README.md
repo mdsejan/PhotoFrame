@@ -1,34 +1,14 @@
-# MechKeyMart
+# DGHS Reunion 2025
 
-### Live URL: &nbsp; &nbsp; [mechkeymart.netlify.app](https://mechkeymart.netlify.app/)
-
-### SERVER REPO: &nbsp; &nbsp; [github.com/mdsejan/mechkeymart-server](https://github.com/mdsejan/mechkeymart-server)
+### Live URL: &nbsp; &nbsp; [dghsreunion2025.netlify.app](https://dghsreunion2025.netlify.app/)
 
 ## Introduction
 
-MechKeyMart is a modern e-commerce platform dedicated to mechanical keyboards. It is designed to provide a seamless shopping experience for keyboard enthusiasts, featuring easy product browsing, detailed product pages, and a smooth cart system.
+The DGHS Reunion 2025 is a special event to bring together alumni from various corners of the world. The event aims to rekindle old memories and foster new connections. With a blend of tradition and modernity, this reunion will celebrate the bond that connects alumni and their beloved school.
 
-## Project Description
+## Event Description
 
-MechKeyMart is built using React, Redux, Mongoose, and Express. This e-commerce site allows users to browse and purchase mechanical keyboards with ease. It includes powerful admin tools for product management, advanced search and filtering options, and optional integration with Stripe for secure payments.
-
-## Features
-
-- **Homepage**: Includes a visually appealing hero section, service advertisements, featured products, top brands, customer reviews, and additional sections about mechanical keyboards.
-- **Products Page**: Displays all products with search, filtering, and sorting options.
-- **Product Details Page**: Shows detailed information about each product with an "Add to Cart" feature.
-- **Cart Page**: Manages items in the cart, allows quantity adjustments, and proceeds to checkout.
-- **Checkout Page**: Collects user details and offers payment methods including Cash on Delivery and Stripe.
-- **Product Management/Dashboard Page**: Provides tools for managing products, including updating, deleting, and adding new products.
-- **About Us Page**: Showcases information about the company with attractive designs.
-- **Contact Us Page**: Provides contact information and encourages user feedback.
-- **UI/UX**: Emphasizes a smooth and intuitive user experience with responsive design.
-- **Other Features**: Includes debounced API calls, page refresh warnings, and micro-animations.
-
-## Technology Stack
-
-- **Frontend**: React, Redux, Vite, TypeScript, RTK Query
-- **Backend**: Node.js, Express, MongoDB, Mongoose, TypeScript, Zod
+The DGHS Reunion 2025 is designed to offer a seamless experience for attendees, with an easy-to-follow event schedule, engaging activities, and memorable moments. Whether it's a warm welcome, fun activities, or heartfelt speeches, the reunion promises to be an unforgettable experience for everyone.
 
 ## Installation Guideline
 
