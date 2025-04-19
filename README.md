@@ -21,13 +21,13 @@ The DGHS Reunion 2025 is designed to offer a seamless experience for attendees, 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/mdsejan/co-work-booker.git
+   git clone https://github.com/mdsejan/PhotoFrame.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd mechkeymart
+   cd photoframe
    ```
 
 3. Install dependencies:
