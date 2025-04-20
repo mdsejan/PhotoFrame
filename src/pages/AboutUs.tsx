@@ -15,9 +15,9 @@ const AboutUs = () => {
 
       <div className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center py-8">
             <motion.h2
-              className="text-4xl font-bold text-gray-800 mb-6"
+              className="text-3xl text-md-4xl font-bold text-gray-800 mb-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -52,7 +52,7 @@ const AboutUs = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <motion.div
-              className="p-6 bg-white rounded-xl shadow-md"
+              className="p-6 bg-white rounded-xl shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -73,7 +73,7 @@ const AboutUs = () => {
             </motion.div>
 
             <motion.div
-              className="p-6 bg-white rounded-xl shadow-md"
+              className="p-6 bg-white rounded-xl shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -104,7 +104,7 @@ const AboutUs = () => {
             </motion.div>
 
             <motion.div
-              className="p-6 bg-white rounded-xl shadow-md"
+              className="p-6 bg-white rounded-xl shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}

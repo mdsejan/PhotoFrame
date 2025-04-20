@@ -59,15 +59,6 @@ const PhotoFrame = () => {
     });
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLImageElement>) => {
-    const touch = e.touches[0];
-    setDragging(true);
-    setStartOffset({
-      x: touch.clientX - position.x,
-      y: touch.clientY - position.y,
-    });
-  };
-
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       if (!dragging) return;
@@ -81,25 +72,7 @@ const PhotoFrame = () => {
     [dragging, startOffset]
   );
 
-  const handleTouchMove = useCallback(
-    (e: TouchEvent) => {
-      if (!dragging) return;
-      const touch = e.touches[0];
-      requestAnimationFrame(() => {
-        setPosition({
-          x: touch.clientX - startOffset.x,
-          y: touch.clientY - startOffset.y,
-        });
-      });
-    },
-    [dragging, startOffset]
-  );
-
   const handleMouseUp = useCallback(() => {
-    setDragging(false);
-  }, []);
-
-  const handleTouchEnd = useCallback(() => {
     setDragging(false);
   }, []);
 
@@ -108,30 +81,18 @@ const PhotoFrame = () => {
       document.body.style.cursor = "grabbing";
       window.addEventListener("mousemove", handleMouseMove);
       window.addEventListener("mouseup", handleMouseUp);
-      window.addEventListener("touchmove", handleTouchMove);
-      window.addEventListener("touchend", handleTouchEnd);
     } else {
       document.body.style.cursor = "default";
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleTouchEnd);
     }
 
     return () => {
       document.body.style.cursor = "default";
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [
-    dragging,
-    handleMouseMove,
-    handleMouseUp,
-    handleTouchMove,
-    handleTouchEnd,
-  ]);
+  }, [dragging, handleMouseMove, handleMouseUp]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
@@ -142,6 +103,7 @@ const PhotoFrame = () => {
       <div className="w-full max-w-2xl space-y-6">
         <h1 className="text-3xl font-bold text-center">📸 Photo Frame</h1>
 
+        {/* Only show upload area if no image is uploaded */}
         {!image && (
           <div
             onDrop={handleDrop}
@@ -166,17 +128,15 @@ const PhotoFrame = () => {
           <>
             <div
               ref={frameRef}
-              className="relative w-[320px] h-[320px] mx-auto overflow-hidden rounded-sm shadow bg-white touch-none"
+              className="relative w-[320px] h-[320px] mx-auto overflow-hidden rounded-xl shadow-lg bg-white"
             >
               <img
                 src={image}
                 alt="User Upload"
                 onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
                 style={{
                   transform: `translate(${position.x}px, ${position.y}px)`,
                   cursor: "grab",
-                  touchAction: "none",
                 }}
                 className="absolute top-0 left-0 w-full h-full object-cover z-0 select-none"
               />
