@@ -206,16 +206,16 @@ const PhotoFrame = () => {
               />
             </div>
 
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 mt-12">
               <button
                 onClick={handleDownload}
-                className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-[#5a52e0] transition"
+                className="mt-4 bg-blue-400 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
               >
                 Download
               </button>
               <button
                 onClick={handleReset}
-                className="mt-4 bg-[#F59E0B] text-white px-6 py-2 rounded-md hover:bg-[#d97706] transition"
+                className="mt-4 bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-950 transition"
               >
                 Make again
               </button>
