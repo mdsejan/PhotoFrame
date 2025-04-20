@@ -160,7 +160,7 @@ const PhotoFrame = () => {
         {/* Two-column container */}
         <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Right Column: Demo Output Image (shown first on mobile) */}
-          <div className="w-full lg:w-1/2 flex justify-center md:justify-start lg:justify-end order-1 lg:order-none">
+          <div className="w-full lg:w-1/2 flex justify-center md:justify-start lg:justify-end order-1 lg:order-2">
             <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] rounded-lg shadow-lg overflow-hidden">
               <img
                 src={demoframe}
@@ -171,7 +171,7 @@ const PhotoFrame = () => {
           </div>
 
           {/* Left Column: Steps (shown second on mobile) */}
-          <div className="w-full lg:w-1/2 order-2 lg:order-none">
+          <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <h2 className="text-3xl font-bold mb-6 text-gray-800 lg:text-left text-center">
               How It Works
             </h2>
