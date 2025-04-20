@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>DGHS Reunion</title>
+        <title>DGHS Reunion25</title>
       </Helmet>
 
       <PhotoFrame />

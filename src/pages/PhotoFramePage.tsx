@@ -140,13 +140,13 @@ const PhotoFrame = () => {
   ]);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-[93vh] bg-gray-100 flex lg:items-center justify-center px-4 py-8">
       <Helmet>
-        <title>Photo Frame - DGHS Reunion</title>
+        <title>DGHS Reunion25</title>
       </Helmet>
 
-      <div className="w-full max-w-2xl space-y-6">
-        <h1 className="text-3xl font-bold text-center">📸 Photo Frame</h1>
+      <div className="w-full max-w-2xl py-8">
+        <h1 className="text-3xl font-bold text-center mb-8">📸 Photo Frame</h1>
 
         {!image && (
           <div
@@ -174,13 +174,13 @@ const PhotoFrame = () => {
               ref={frameRef}
               className="relative w-[320px] h-[320px] mx-auto overflow-hidden rounded-sm shadow bg-white touch-none"
             >
-              {/* Wrapper that will be moved */}
+              {/* Draggable wrapper */}
               <div
-                className="absolute top-0 left-0 w-full h-full"
+                className="absolute top-0 left-0"
                 style={{
                   transform: `translate(${position.x}px, ${position.y}px)`,
-                  touchAction: "none",
                   cursor: dragging ? "grabbing" : "grab",
+                  touchAction: "none",
                 }}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
@@ -188,12 +188,16 @@ const PhotoFrame = () => {
                 <img
                   src={image}
                   alt="User Upload"
-                  className="w-full h-full object-cover select-none pointer-events-none"
+                  className="max-w-none select-none pointer-events-none"
+                  style={{
+                    height: "320px", // Keep container height fixed
+                    width: "auto", // Let width auto adjust based on image
+                  }}
                   draggable={false}
                 />
               </div>
 
-              {/* Frame stays fixed above */}
+              {/* Frame stays on top */}
               <img
                 src={frame}
                 alt="Photo Frame"
@@ -213,7 +217,7 @@ const PhotoFrame = () => {
                 onClick={handleReset}
                 className="mt-4 bg-[#F59E0B] text-white px-6 py-2 rounded-md hover:bg-[#d97706] transition"
               >
-                Reset
+                Make again
               </button>
             </div>
           </>

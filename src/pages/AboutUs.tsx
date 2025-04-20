@@ -10,7 +10,7 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About - DGHS Reunion 2025</title>
+        <title>About - DGHS Reunion25</title>
       </Helmet>
 
       <div className="py-12 bg-gray-50">
