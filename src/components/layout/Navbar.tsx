@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
       >
         About
       </Link>
-      <Link
+      {/* <Link
         to="/contact"
         className={`block ${
           location.pathname === "/contact"
@@ -58,12 +58,12 @@ const Navbar: React.FC = () => {
         onClick={closeMenu}
       >
         Contact
-      </Link>
+      </Link> */}
     </>
   );
 
   return (
-    <nav className="bg-white border-b">
+    <nav className="bg-white border-b z-20 sticky top-0">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="relative w-full flex items-center">
@@ -108,7 +108,9 @@ const Navbar: React.FC = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="relative">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">{navLinks}</div>
+          <div className="text-2xl px-2 pt-2 pb-3 space-y-4  sm:px-3">
+            {navLinks}
+          </div>
         </div>
       </motion.div>
     </nav>
