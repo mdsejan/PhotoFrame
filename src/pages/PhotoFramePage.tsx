@@ -46,7 +46,7 @@ const PhotoFrame = () => {
     });
 
     const link = document.createElement("a");
-    link.download = "framed-photo.png";
+    link.download = "dghsreunion25.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
   };
@@ -208,16 +208,16 @@ const PhotoFrame = () => {
 
             <div className="flex justify-center gap-4 mt-12">
               <button
-                onClick={handleDownload}
-                className="mt-4 bg-blue-400 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
-              >
-                Download
-              </button>
-              <button
                 onClick={handleReset}
                 className="mt-4 bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-950 transition"
               >
                 Make again
+              </button>
+              <button
+                onClick={handleDownload}
+                className="mt-4 bg-blue-400 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
+              >
+                Download
               </button>
             </div>
           </>
