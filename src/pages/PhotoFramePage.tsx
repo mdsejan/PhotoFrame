@@ -39,10 +39,12 @@ const PhotoFrame = () => {
   const handleDownload = async () => {
     if (!frameRef.current) return;
 
-    const scale = window.devicePixelRatio || 1;
+    const scale = 5;
+
     const canvas = await html2canvas(frameRef.current, {
-      scale, // makes sure download quality is high
+      scale: scale,
       useCORS: true,
+      logging: false,
     });
 
     const link = document.createElement("a");
