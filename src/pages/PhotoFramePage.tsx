@@ -38,10 +38,16 @@ const PhotoFrame = () => {
 
   const handleDownload = async () => {
     if (!frameRef.current) return;
-    const canvas = await html2canvas(frameRef.current);
+
+    const scale = window.devicePixelRatio || 1;
+    const canvas = await html2canvas(frameRef.current, {
+      scale, // makes sure download quality is high
+      useCORS: true,
+    });
+
     const link = document.createElement("a");
     link.download = "framed-photo.png";
-    link.href = canvas.toDataURL();
+    link.href = canvas.toDataURL("image/png");
     link.click();
   };
 
@@ -168,22 +174,31 @@ const PhotoFrame = () => {
               ref={frameRef}
               className="relative w-[320px] h-[320px] mx-auto overflow-hidden rounded-sm shadow bg-white touch-none"
             >
-              <img
-                src={image}
-                alt="User Upload"
-                onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
+              {/* Wrapper that will be moved */}
+              <div
+                className="absolute top-0 left-0 w-full h-full"
                 style={{
                   transform: `translate(${position.x}px, ${position.y}px)`,
-                  cursor: "grab",
                   touchAction: "none",
+                  cursor: dragging ? "grabbing" : "grab",
                 }}
-                className="absolute top-0 left-0 w-full h-full object-cover z-0 select-none"
-              />
+                onMouseDown={handleMouseDown}
+                onTouchStart={handleTouchStart}
+              >
+                <img
+                  src={image}
+                  alt="User Upload"
+                  className="w-full h-full object-cover select-none pointer-events-none"
+                  draggable={false}
+                />
+              </div>
+
+              {/* Frame stays fixed above */}
               <img
                 src={frame}
                 alt="Photo Frame"
                 className="absolute top-0 left-0 w-full h-full object-contain z-10 pointer-events-none"
+                draggable={false}
               />
             </div>
 
