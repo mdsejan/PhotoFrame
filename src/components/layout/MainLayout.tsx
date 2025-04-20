@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const MainLayout = () => {
@@ -7,7 +7,7 @@ const MainLayout = () => {
     <div className="min-h-screen flex flex-col justify-between">
       <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
