@@ -9,6 +9,7 @@ const PhotoFrame = () => {
   const [dragging, setDragging] = useState(false);
   const [startOffset, setStartOffset] = useState({ x: 0, y: 0 });
   const frameRef = useRef<HTMLDivElement>(null);
+  const [photoDownloaded, setPhotoDownloaded] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,6 +52,8 @@ const PhotoFrame = () => {
     link.download = "dghsreunion25.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
+
+    setPhotoDownloaded(true);
   };
 
   const handleReset = () => {
@@ -148,7 +151,9 @@ const PhotoFrame = () => {
       </Helmet>
 
       <div className="w-full max-w-2xl py-8">
-        <h1 className="text-3xl font-bold text-center mb-8">📸 Photo Frame</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">
+          Make Reunion Profile Frame
+        </h1>
 
         {!image && (
           <div
@@ -209,12 +214,14 @@ const PhotoFrame = () => {
             </div>
 
             <div className="flex justify-center gap-4 mt-12">
-              <button
-                onClick={handleReset}
-                className="mt-4 bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-950 transition"
-              >
-                Make again
-              </button>
+              {photoDownloaded && (
+                <button
+                  onClick={handleReset}
+                  className="mt-4 bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-950 transition"
+                >
+                  Make again
+                </button>
+              )}
               <button
                 onClick={handleDownload}
                 className="mt-4 bg-blue-400 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
