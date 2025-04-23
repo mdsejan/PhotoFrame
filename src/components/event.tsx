@@ -17,7 +17,7 @@ const Events = () => {
   ];
 
   return (
-    <section className="bg-[#f9f9f9] py-20">
+    <section className="bg-white py-20">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-semibold text-center text-gray-800 mb-4">
           Events Schedule

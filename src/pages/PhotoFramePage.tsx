@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import frame from "../assets/img/frame.png";
 import demoframe from "../assets/img/sejan_dghs.webp";
-import HomePageCTA from "../components/CountDown";
 
 declare global {
   interface Window {
@@ -338,8 +337,6 @@ const PhotoFrame = () => {
           )}
         </div>
       </section>
-
-      <HomePageCTA />
     </div>
   );
 };

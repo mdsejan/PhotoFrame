@@ -92,7 +92,7 @@ const HomePageCTA = () => {
           <a
             href="https://reunion.dghsaa.org/register"
             target="_blank"
-            className="bg-yellow-400 text-gray-700 font-semibold py-3 px-24 rounded-full text-sm sm:text-lg hover:bg-yellow-500 transition"
+            className="bg-yellow-400 text-gray-700 font-semibold py-3 px-12 md:px-24 rounded-full text-sm sm:text-lg hover:bg-yellow-500 transition"
           >
             Register Now
           </a>

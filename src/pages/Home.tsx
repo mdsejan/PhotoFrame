@@ -2,6 +2,9 @@ import { Helmet } from "react-helmet-async";
 
 import { useEffect } from "react";
 import PhotoFrame from "./PhotoFramePage";
+import HomePageCTA from "../components/CountDown";
+import Events from "../components/event";
+import BeASponsorSection from "../components/BeASponsorSection";
 
 const Home = () => {
   useEffect(() => {
@@ -14,6 +17,9 @@ const Home = () => {
       </Helmet>
 
       <PhotoFrame />
+      <HomePageCTA />
+      <Events />
+      <BeASponsorSection />
     </div>
   );
 };
