@@ -85,6 +85,7 @@ const AboutUs = () => {
                 🖥️ <strong>অনলাইন</strong>: রেজিস্ট্রেশন করতে ভিজিট করুন -{" "}
                 <a
                   href="https://reunion.dghsaa.org/register"
+                  target="_blank"
                   className="text-blue-600 underline"
                 >
                   Reg link
@@ -133,6 +134,7 @@ const AboutUs = () => {
               <br />
               <a
                 href="https://www.facebook.com/profile.php?id=61574710355241"
+                target="_blank"
                 className="text-blue-600 underline"
               >
                 DGHS Reunion & Alumni Association Page
@@ -140,6 +142,7 @@ const AboutUs = () => {
               |
               <a
                 href="https://www.facebook.com/groups/671667635233107"
+                target="_blank"
                 className="text-blue-600 underline ml-2"
               >
                 Facebook Group

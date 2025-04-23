@@ -3,6 +3,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import frame from "../assets/img/frame.png";
 import demoframe from "../assets/img/sejan_dghs.webp";
+import HomePageCTA from "../components/CountDown";
+
+declare global {
+  interface Window {
+    gtag?: (...args: [string, string, Record<string, unknown>]) => void;
+  }
+}
 
 const PhotoFrame = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -38,23 +45,55 @@ const PhotoFrame = () => {
     reader.readAsDataURL(file);
   };
 
+  // const handleDownload = async () => {
+  //   if (!frameRef.current) return;
+
+  //   const scale = 5;
+
+  //   const canvas = await html2canvas(frameRef.current, {
+  //     scale: scale,
+  //     useCORS: true,
+  //     logging: false,
+  //   });
+
+  //   const link = document.createElement("a");
+  //   link.download = "dghsreunion25.png";
+  //   link.href = canvas.toDataURL("image/png");
+  //   link.click();
+
+  //   setPhotoDownloaded(true);
+  // };
+
   const handleDownload = async () => {
     if (!frameRef.current) return;
 
     const scale = 5;
 
-    const canvas = await html2canvas(frameRef.current, {
-      scale: scale,
-      useCORS: true,
-      logging: false,
-    });
+    try {
+      const canvas = await html2canvas(frameRef.current, {
+        scale: scale,
+        useCORS: true,
+        logging: false,
+      });
 
-    const link = document.createElement("a");
-    link.download = "dghsreunion25.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+      const link = document.createElement("a");
+      link.download = "dghsreunion25.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
 
-    setPhotoDownloaded(true);
+      setPhotoDownloaded(true);
+
+      // ✅ Send download event to Google Analytics
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "photo_download", {
+          event_category: "engagement",
+          event_label: "Download from PhotoFramePage",
+          value: 1,
+        });
+      }
+    } catch (error) {
+      console.error("Download failed:", error);
+    }
   };
 
   const handleReset = () => {
@@ -154,11 +193,13 @@ const PhotoFrame = () => {
       <section className="bg-white py-16 px-4 lg:px-12">
         {/* Title */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl font-bold">Make Reunion Profile Frame</h1>
+          <h1 className="text-3xl font-bold">
+            Make Reunion <span className="text-blue-600">Profile Frame</span>
+          </h1>
         </div>
 
         {/* Two-column container */}
-        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Right Column: Demo Output Image (shown first on mobile) */}
           <div className="w-full lg:w-1/2 flex justify-center md:justify-start lg:justify-end order-1 lg:order-2">
             <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] rounded-lg shadow-lg overflow-hidden">
@@ -173,7 +214,7 @@ const PhotoFrame = () => {
           {/* Left Column: Steps (shown second on mobile) */}
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <h2 className="text-3xl font-bold mb-6 text-gray-800 lg:text-left text-center">
-              How It Works
+              How It <span className="text-blue-600">Works?</span>
             </h2>
             <ol className="space-y-6 text-gray-700">
               <li className="flex items-start gap-4">
@@ -215,7 +256,7 @@ const PhotoFrame = () => {
         </div>
       </section>
 
-      <section className="flex lg:items-center justify-center px-4 py-8 mb-[18vh]">
+      <section className="flex lg:items-center justify-center px-4 py-8 ">
         <div className="w-full max-w-2xl py-8">
           {!image && (
             <div
@@ -297,6 +338,8 @@ const PhotoFrame = () => {
           )}
         </div>
       </section>
+
+      <HomePageCTA />
     </div>
   );
 };

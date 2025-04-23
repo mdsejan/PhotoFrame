@@ -36,7 +36,6 @@ const Navbar: React.FC = () => {
       >
         Home
       </Link>
-
       <Link
         to="/about"
         className={`block ${
@@ -48,6 +47,17 @@ const Navbar: React.FC = () => {
       >
         About
       </Link>
+
+      <motion.a
+        href="https://reunion.dghsaa.org/register"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={closeMenu}
+        className="block text-lg lg:text-sm  text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 rounded-lg px-2 py-[2px] text-center shadow hover:bg-gradient-to-l hover:from-pink-500 hover:via-purple-600 hover:to-indigo-500 transition-all duration-300 w-full sm:w-auto"
+      >
+        Register Now
+      </motion.a>
+
       {/* <Link
         to="/contact"
         className={`block ${
@@ -69,12 +79,17 @@ const Navbar: React.FC = () => {
           <div className="relative w-full flex items-center">
             {/* Logo on the left */}
             <div className="flex-shrink-0">
-              <Link to="/" className="flex items-center space-x-2">
+              <a
+                href="https://reunion.dghsaa.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2"
+              >
                 <img src={logo} className="h-8" alt="Logo" />
                 <h1 className="text-xl font-bold text-gray-800">
                   DGHS Reunion
                 </h1>
-              </Link>
+              </a>
             </div>
 
             {/* Centered links */}
