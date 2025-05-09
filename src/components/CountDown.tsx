@@ -52,7 +52,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 };
 
 const HomePageCTA = () => {
-  const eventDate = "2025-05-11T24:00:00";
+  const eventDate = "2025-05-14T24:00:00";
 
   return (
     <div className="bg-white py-16 px-6 sm:px-8">

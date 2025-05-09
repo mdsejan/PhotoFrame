@@ -45,3 +45,11 @@ npm run dev
 ```
 
 The server will start running at `http://localhost:5173/`.
+
+## Gallery
+
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/0414a004-428b-479f-8ba9-5248870a7248" width="200" />
+  <img src="https://github.com/user-attachments/assets/20532d9e-4270-4f74-b2b6-600f7451b04a" width="200" />
+  <img src="https://github.com/user-attachments/assets/d30be33b-4fe7-487c-a370-450f5e0e2402" width="200" />
+</p>
