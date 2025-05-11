@@ -44,25 +44,6 @@ const PhotoFrame = () => {
     reader.readAsDataURL(file);
   };
 
-  // const handleDownload = async () => {
-  //   if (!frameRef.current) return;
-
-  //   const scale = 5;
-
-  //   const canvas = await html2canvas(frameRef.current, {
-  //     scale: scale,
-  //     useCORS: true,
-  //     logging: false,
-  //   });
-
-  //   const link = document.createElement("a");
-  //   link.download = "dghsreunion25.png";
-  //   link.href = canvas.toDataURL("image/png");
-  //   link.click();
-
-  //   setPhotoDownloaded(true);
-  // };
-
   const handleDownload = async () => {
     if (!frameRef.current) return;
 
@@ -70,19 +51,47 @@ const PhotoFrame = () => {
 
     try {
       const canvas = await html2canvas(frameRef.current, {
-        scale: scale,
+        scale,
         useCORS: true,
         logging: false,
       });
 
+      const blob = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob(
+          (b) => (b ? resolve(b) : reject(new Error("Blob creation failed"))),
+          "image/png"
+        );
+      });
+
+      const blobUrl = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.download = "dghsreunion25.png";
-      link.href = canvas.toDataURL("image/png");
+      link.href = blobUrl;
       link.click();
+      URL.revokeObjectURL(blobUrl);
 
       setPhotoDownloaded(true);
 
-      // ✅ Send download event to Google Analytics
+      // Upload to Cloudinary (fire-and-forget)
+      const formData = new FormData();
+      formData.append("file", blob);
+      formData.append(
+        "upload_preset",
+        import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+      );
+      formData.append("folder", "reunion2025");
+
+      fetch(
+        `https://api.cloudinary.com/v1_1/${
+          import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+        }/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      ).catch(() => {}); // Silently fail
+
+      // Analytics
       if (typeof window.gtag === "function") {
         window.gtag("event", "photo_download", {
           event_category: "engagement",
@@ -90,8 +99,8 @@ const PhotoFrame = () => {
           value: 1,
         });
       }
-    } catch (error) {
-      console.error("Download failed:", error);
+    } catch {
+      // Silent catch — no logging in prod
     }
   };
 
