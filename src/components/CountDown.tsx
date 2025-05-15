@@ -52,7 +52,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 };
 
 const HomePageCTA = () => {
-  const eventDate = "2025-05-14T24:00:00";
+  const eventDate = "2025-06-09T08:00:00";
 
   return (
     <div className="bg-white py-16 px-6 sm:px-8">
@@ -83,12 +83,12 @@ const HomePageCTA = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          🎯 <span className="text-lg sm:text-xl">Registration ends in:</span>
+          🎯 <span className="text-lg sm:text-xl">Reunion Begins In:</span>
         </motion.div>
 
         <CountdownTimer targetDate={eventDate} />
 
-        <div className="mt-24">
+        {/* <div className="mt-24">
           <a
             href="https://reunion.dghsaa.org/register"
             target="_blank"
@@ -96,7 +96,7 @@ const HomePageCTA = () => {
           >
             Register Now
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
