@@ -49,13 +49,13 @@ const Navbar: React.FC = () => {
       </Link>
 
       <motion.a
-        href="https://reunion.dghsaa.org/register"
+        href="https://reunion.dghsaa.org/"
         target="_blank"
         rel="noopener noreferrer"
         onClick={closeMenu}
         className="block text-lg lg:text-sm  text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 rounded-lg px-2 py-[2px] text-center shadow hover:bg-gradient-to-l hover:from-pink-500 hover:via-purple-600 hover:to-indigo-500 transition-all duration-300 w-full sm:w-auto"
       >
-        Register Now
+        Main Site
       </motion.a>
 
       {/* <Link
@@ -80,8 +80,7 @@ const Navbar: React.FC = () => {
             {/* Logo on the left */}
             <div className="flex-shrink-0">
               <a
-                href="https://reunion.dghsaa.org/"
-                target="_blank"
+                href="/"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2"
               >
